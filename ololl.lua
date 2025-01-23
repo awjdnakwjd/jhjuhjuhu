@@ -137,10 +137,8 @@ local Window = Fluent:CreateWindow({
 })
 
 -- Add a Close callback to properly handle window closing
-if Window.Close then  -- Check if Close exists
-    Window.Close:Connect(function()
-        Fluent:Destroy()
-    end)
+Window.OnClose = function()
+    Fluent:Destroy()
 end
 
 local Tabs = {
